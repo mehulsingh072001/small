@@ -1,11 +1,11 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.21 <0.6.0;
+pragma solidity >=0.4.22 <0.9.0;
 
-contract DappToken {
-    string public name = "DApp Token";
-    string public symbol = "DAPP";
+contract DaiToken {
+    string  public name = "Mock DAI Token";
+    string  public symbol = "mDAI";
     uint256 public totalSupply = 1000000000000000000000000; // 1 million tokens
-    uint8 public decimals = 18;
+    uint8   public decimals = 18;
 
     event Transfer(
         address indexed _from,
@@ -40,7 +40,7 @@ contract DappToken {
         return true;
     }
 
-    function transferForm(address _from, address _to, uint256 _value) public returns (bool success) {
+    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {
         require(_value <= balanceOf[_from]);
         require(_value <= allowance[_from][msg.sender]);
         balanceOf[_from] -= _value;

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity >=0.4.21 <0.6.0;
+pragma solidity >=0.4.22 <0.9.0;
 
 import "./DaiToken.sol";
 import "./DappToken.sol";
@@ -31,10 +31,12 @@ contract TokenFarm {
 
          // Add user to stakers array *only* if they haven't staked already
          if(!hasStaked[msg.sender]) {
-             stakes.push(msg.sender);
+             stakers.push(msg.sender);
          
          //Update staking status
          isStaking[msg.sender] = true;
          hasStaked[msg.sender] = true;
+
+        }
     }
 }
